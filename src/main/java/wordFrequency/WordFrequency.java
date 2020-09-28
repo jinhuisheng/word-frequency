@@ -28,8 +28,12 @@ public class WordFrequency {
 
     private static String join(Stream<Map.Entry<String, Long>> entryStream) {
         return entryStream
-                .map(entry -> entry.getKey() + " " + entry.getValue())
+                .map(WordFrequency::countOneWord)
                 .collect(Collectors.joining(DELIMITER));
+    }
+
+    private static String countOneWord(Map.Entry<String, Long> entry) {
+        return entry.getKey() + " " + entry.getValue();
     }
 
     private static Stream<Map.Entry<String, Long>> sort(LinkedHashMap<String, Long> group) {
