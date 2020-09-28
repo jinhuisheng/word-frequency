@@ -21,7 +21,7 @@ public class WordFrequency {
 
     private static String parse(String input) {
         String[] stringArray = input.split(SEPARATOR);
-        LinkedHashMap<String, Long> group = group(stringArray);
+        LinkedHashMap<String, Long> group = groupCount(stringArray);
         Stream<Map.Entry<String, Long>> sorted = sort(group);
         return join(sorted);
     }
@@ -37,7 +37,7 @@ public class WordFrequency {
                 .sorted((a, b) -> b.getValue().compareTo(a.getValue()));
     }
 
-    private static LinkedHashMap<String, Long> group(String[] stringArray) {
+    private static LinkedHashMap<String, Long> groupCount(String[] stringArray) {
         return Arrays.stream(stringArray)
                 .collect(Collectors.groupingBy(str -> str, LinkedHashMap::new
                         , Collectors.mapping(String::new, Collectors.counting())));
