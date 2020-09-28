@@ -13,13 +13,17 @@ Word Frequency 单词频率需求
 //    }
 
 ```
+### 名词
+单词(换行) 个数 顺序（倒序）
 
 ## 正常逻辑
-* "" => ""
-* "he" => he 1
-* "he is" => he 1\nis 1
-* "he he is" => he 2\nis 1
-* "he is is" => is 2\nhe 1
+""=>""
+"he" => "he 1"
+"he is" => "he 1\nis 1"
+"he he" => "he 2\n"
+"he he is"=>"he 2\nis 1"
+"he is is"=>"he 1\nis 2"
+
 
 ## 异常逻辑
 * "he  is" => 输入不合法
